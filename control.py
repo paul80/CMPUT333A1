@@ -4,18 +4,15 @@ import start
 import blockreciever
 import statsandprint
 
-#import start
-#import recievesendchecker
 
 def organizercontroll(A,K,F,e,seed):
 
-    
-    #return a test instance 
-    #youve already checked from the caller that 0 == (F modulo K)
     sizeofpacket = int(F)
     numberofblock = int(K)
     biterrorprobability = float(e)
-    instadelay = int(R*(10**(-7)))
+    
+    #the bit time is converted into seconds
+    instadelay = int(A*(10**(-7)))
 
     framecounter = 0
     successfulframecount = 0
@@ -25,25 +22,29 @@ def organizercontroll(A,K,F,e,seed):
     #here we separate the frame into K blocks
     #if one of the blocks fails re-transmit the whole frame
     framesentfailed = 0
-    while(framesentfailed == 0):
+    while(framesentfailed == 0): 
+        #blockfail checks if any of the blocks failed
         blockfail = 0
-        #do a blockfail ifstatement below
-        for instanceblock in range(0,K):
+        #iterate through all of the blocks
+        for instanceblock in range(0,numberofblock):
             if(K == 0):
-                successfullysend = recievesenddetect(F, biterrorprobability, instadelay, seed, 0)
+                successfullysend = blockreciever.recievesenddetect(F, biterrorprobability, instadelay, seed, 0)
                 framecounter = framecounter + 1
                 if (succesfullysend != 0):
                     successfulframecount = successfulframecount + 1
                 else:
+                    #if any of the block fails the whole frame is resent
                     blockfail = 1
             else:
-                sucessfullysend = recievesenddetect((F/K), biterrorprobability,instadelay,seed,1)
+                sucessfullysend = blockreciever.recievesenddetect((F/K), biterrorprobability,instadelay,seed,1)
                 framecounter = framecounter + 1
                 if(successfulsend != 0):
                     successfulframecount = successfulframecout + 1
                 else:
+                    #if any of the block fails the whole frame is resent                    
                     blockfail = 1
         if (blockfail == 0):
+            #if all of the blocks are succefully sent exit the while loop
             framesentfailed = 1
 
     #ok we have an instance of a test
