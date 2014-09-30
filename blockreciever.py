@@ -31,12 +31,13 @@ def recievessnddetect(numberofbits, error, feedbacktime, seed, doparity):
             numberofpacketerror = numberofpacketerror + 1
 
     time.sleep(instadelay)
-if numberofpacketerror > 1:
+    
+    if numberofpacketerror > 1:
     #returns 0 to retransmit the whole frame when this block fails
-    return 0
+        return 0
 
-else:
+    else:
     #block sent successfully
-    return paritycounter
+        return paritycounter
 
 

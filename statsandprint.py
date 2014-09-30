@@ -32,6 +32,6 @@ def getandprintstats(arrayofframes, arrayofthoroughput, arrayofseeds, arrayofinp
 
    #Throughputstdev =  statistics.stddev(arrayofthroughput)
     print(sys.argv)
-    print(Frameavg+" "+"("Framec1+","+Framec2+")")
+    print(Frameavg+" "+"("+Framec1+","+Framec2+")")
     print(Thoroughputavg+" "+"("+Thoroughc1+","+ Thoroughc2+")")
 
