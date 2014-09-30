@@ -6,8 +6,8 @@ import statsandprint
 import startatrial
 
 #start program here
-if __name__ == _main_:
 
+def main():
     #prints what we want from the user
     print ("enter A K e R t respectively without commas separated by spaces +\n")
     print("A is feedback time in bit times")
@@ -18,6 +18,8 @@ if __name__ == _main_:
     print("t is trials +\n")
     print("any wrong input will ask you to reenter the inputs")
     
+    y = 0
+    x = 0
     while( y ==0):
         while (x ==0):
             parser = argparse.ArgumentParser()
@@ -77,4 +79,5 @@ if __name__ == _main_:
         #convert bit time to seconds
 
 
-
+if __name__ == "__main__":
+    main()

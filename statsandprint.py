@@ -1,4 +1,4 @@
-import statistics
+import numpy
 import math
 import start
 import blockreciever
@@ -8,8 +8,10 @@ import control
 def getandprintstats(arrayofframes, arrayofthoroughput, arrayofseeds, arrayofinput ):
 
     T = sys.argv[5]
-    Framestddev = statistics.stdev(arrayofframes)
-    Thoroughputstddev = statistics.stdev(arrayofthoroughput)
+    #Framestddev = statistics.stdev(arrayofframes)
+    Framestddev = numpy.std(arrayofframes)
+    #Thoroughputstddev = statistics.stdev(arrayofthoroughput)
+    Thoroughputstddev = numpy.stdev(arrayofthoroughput)   
     Framesum=0
     
     for numofframes in range(arrayofframes):
