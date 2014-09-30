@@ -17,7 +17,7 @@ def recievessnddetect(numberofbits, error, feedbacktime, seed, doparity):
 
     paritycounter = 0
     checkflagcounter = 1
-    while((checkflagcouunter == 1) && (doparity != 0)):
+    while((checkflagcouunter == 1) and (doparity != 0)):
         #find the parity bits needed
         if(numberofbits >= 2**paritycounter):
             paritycounter++

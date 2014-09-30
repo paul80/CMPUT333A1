@@ -7,7 +7,7 @@ import statsandprint
 #import start
 #import recievesendchecker
 
-def organizercontroll(K,F,e,seed):
+def organizercontroll(A,K,F,e,seed):
 
     
     #return a test instance 
@@ -15,7 +15,7 @@ def organizercontroll(K,F,e,seed):
     sizeofpacket = int(F)
     numberofblock = int(K)
     biterrorprobability = float(e)
-    #bittimeinseconds = int(R*(10**(-7)))
+    instadelay = int(R*(10**(-7)))
 
     framecounter = 0
     successfulframecount = 0
@@ -29,15 +29,15 @@ def organizercontroll(K,F,e,seed):
         blockfail = 0
         #do a blockfail ifstatement below
         for instanceblock in range(0,K):
-            if(doparity == 0):
-                successfullysend = recievesenddetect(F/K, biterrorprobability, instadelay, seed, 0)
+            if(K == 0):
+                successfullysend = recievesenddetect(F, biterrorprobability, instadelay, seed, 0)
                 framecounter = framecounter + 1
-                if (succesfullysend == 1):
+                if (succesfullysend != 0):
                     successfulframecount = successfulframecount + 1
                 else:
                     blockfail = 1
             else:
-                sucessfullysend = recievesenddetect((F), biterrorprobability,feedbacktime,seed,1)
+                sucessfullysend = recievesenddetect((F/K), biterrorprobability,instadelay,seed,1)
                 framecounter = framecounter + 1
                 if(successfulsend != 0):
                     successfulframecount = successfulframecout + 1

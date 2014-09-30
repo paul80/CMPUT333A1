@@ -17,11 +17,14 @@ def instancetrial(syslist, seed):
     thoroughputcontainer = []
 
     bitssofar = 0
+    
+    return(control.organizercontroll(int(syslist[1]),int(syslist[2]), int(syslist[3]), float(syslist[4]), seed))
+    
     #stopbit = int(syslist[5])
     #while(bitssofar < stopbit):
 
     #bitssofar = bitssofar + int(syslist[2]) 
-    framecounter, succesfulframecount, thoroughputinstance, seed = control.organizercontroll(int(syslist[2]), int(syslist[3]), int(syslist[4]), float(syslist[4]), seed)
+    #framecounter, succesfulframecount, thoroughputinstance, seed = control.organizercontroll(int(syslist[2]), int(syslist[3]), int(syslist[4]), float(syslist[4]), seed)
 
     #framecountercontainer.append(framecounter)
     #succesfulframecontainer.append(succesfulframecount)
