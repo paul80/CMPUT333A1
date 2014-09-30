@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 License:
  /*
     deasis-todolist: To-do list that manages and emails items in the list.
@@ -48,3 +49,8 @@ error may have been introduced during transmission. The simulation looks at the 
 of error correction versus the weight of error detection, with respect to performance. The test results are shown
 below, which includes comments and observations about the tests.
 
+=======
+CMPUT333A1
+
+This is assignment 1. 
+>>>>>>> 36d1969a43685db4af1fc3bc883de1ae5c72bdc9
