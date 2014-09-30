@@ -3,7 +3,7 @@ import random
 import start
 import statsandprint
 import control
-
+import sys
 def recieve_send_detect(numberofbits, error, feedbacktime, seed, doparity):
 
     instaerror = float(error)
@@ -33,13 +33,26 @@ def recieve_send_detect(numberofbits, error, feedbacktime, seed, doparity):
     '''
     
     #numberofbits was interpreted as a float leading to error so converted to int
+    counter=0
+    while (counter<int(numberofbits)+paritycounter):        
+        p = random.random()  #returns floating point number between 0 and 1
+        print(str(p))
+        #p = random.uniform(0,1)
+        if p < instaerror:
+            numberofpacketerror = numberofpacketerror + 1  
+        counter+=1
+        #print(counter)
+        #print(paritycounter)
+    
+    #sys.exit()
+    '''
     for x in range(0,int(numberofbits)+paritycounter):        
         p = random.random()  #returns floating point number between 0 and 1
         #print(str(p))
         #p = random.uniform(0,1)
         if p > instaerror:
             numberofpacketerror = numberofpacketerror + 1 
-            
+    '''       
     time.sleep(instadelay)
     
     if numberofpacketerror > 1:
@@ -48,6 +61,6 @@ def recieve_send_detect(numberofbits, error, feedbacktime, seed, doparity):
 
     else:
     #block sent successfully
-        return paritycounter
+        return 1
 
 

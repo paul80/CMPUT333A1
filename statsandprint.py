@@ -7,11 +7,13 @@ import control
 
 def getandprintstats(arrayofframes, arrayofthoroughput, arrayofseeds, arrayofinput ):
 
-    T = sys.argv[5]
+    T = arrayofinput[5]
     #Framestddev = statistics.stdev(arrayofframes)
     Framestddev = numpy.std(arrayofframes)
     #Thoroughputstddev = statistics.stdev(arrayofthoroughput)
-    Thoroughputstddev = numpy.stdev(arrayofthoroughput)   
+    #Thoroughputstddev = numpy.stdev(arrayofthoroughput)   
+    
+    standard_dev= math.sqrt(average(
     Framesum=0
     
     for numofframes in range(arrayofframes):

@@ -36,13 +36,18 @@ def organizercontroll(A,K,F,e,seed):
                     #if any of the block fails the whole frame is resent
                     blockfail = 1
             else:
+                #print(framesentfailed)
                 successfullysend = blockreciever.recieve_send_detect((F/K), biterrorprobability,instadelay,seed,1)
                 framecounter = framecounter + 1
+                #print("successfullysend"+str(successfullysend)) == 0
                 if(successfullysend != 0):
-                    successfulframecount = successfulframecout + 1
+                    successfulframecount = successfulframecount + 1
                 else:
                     #if any of the block fails the whole frame is resent                    
                     blockfail = 1
+        #print("outsideforloop" )
+        #print(blockfail) == 1
+        #print(successfulframecount)==0
         if (blockfail == 0):
             #if all of the blocks are succefully sent exit the while loop
             framesentfailed = 1
@@ -51,7 +56,7 @@ def organizercontroll(A,K,F,e,seed):
     #we start returning values
     endinstancetime= time.time()
     theinstancetime = endinstancetime - startinstancetime
-    thoroughputinstance = ((K/F)+successfulsend)/(theinstancetime)
+    thoroughputinstance = ((K/F)*successfullysend)/(theinstancetime)
     return framecounter, successfulframecount, thoroughputinstance,seed
 
 #a , b = somefunction()

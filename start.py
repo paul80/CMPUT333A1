@@ -73,13 +73,13 @@ def main():
             
             #adds information to the containers
             framecountercontainer.append(framecounter)
-            succefulframecontainer.append(succesfulframecount)
-            thoroughputcontainer.append(thoroughputinstance)
+            succesfulframecontainer.append(succesfulframecount)
+            throughputcontainer.append(thoroughputinstance)
             seedinstancecontainer.append(seed)
 
         #prints stats needed
         #statsandprint.getandprintstats(frameinstancecontainer, thoroughputcontainer, seedinstancecontainer, sys.argv)
-        statsandprint.getandprintstats(frameinstancecontainer, thoroughputcontainer, seedinstancecontainer, command_arguments)
+        statsandprint.getandprintstats(framecountercontainer, throughputcontainer, seedinstancecontainer, command_arguments)
         
         print('\n would you like to do a new test? \n')
         print('enter 0 for no and 1 for yes')
