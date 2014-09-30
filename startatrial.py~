@@ -1,0 +1,14 @@
+import sys
+import argparse
+import blockreciever
+import control
+import start
+import statsandprint
+
+framecountercontainer = []
+succesfulframecontainer = []
+thoroughputcontainter = []
+seedinstancecounter = []
+
+
+def something():
