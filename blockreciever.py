@@ -4,7 +4,7 @@ import start
 import statsandprint
 import control
 
-def recievessnddetect(numberofbits, error, feedbacktime, seed, doparity):
+def recieve_send_detect(numberofbits, error, feedbacktime, seed, doparity):
 
     instaerror = float(error)
     instaerrorcount = 0
@@ -14,7 +14,7 @@ def recievessnddetect(numberofbits, error, feedbacktime, seed, doparity):
 
     paritycounter = 0
     checkflagcounter = 1
-    while((checkflagcouunter == 1) and (doparity != 0)):
+    while((checkflagcounter == 1) and (doparity != 0)):
         #find the parity bits needed
         if(numberofbits >= 2**paritycounter):
             paritycounter=paritycounter + 1
@@ -23,13 +23,23 @@ def recievessnddetect(numberofbits, error, feedbacktime, seed, doparity):
             doparity = 0
     
 
-    rnd = random.Random(seed)
+    #rnd = random.Random(seed)
+    '''
     for x in range(0,numberofbits+paritycountchecker):        
         p = rnd.uniform(0,1)
         #p = random.uniform(0,1)
         if p > instaerror:
             numberofpacketerror = numberofpacketerror + 1
-
+    '''
+    
+    #numberofbits was interpreted as a float leading to error so converted to int
+    for x in range(0,int(numberofbits)+paritycounter):        
+        p = random.random()  #returns floating point number between 0 and 1
+        #print(str(p))
+        #p = random.uniform(0,1)
+        if p > instaerror:
+            numberofpacketerror = numberofpacketerror + 1 
+            
     time.sleep(instadelay)
     
     if numberofpacketerror > 1:

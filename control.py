@@ -28,7 +28,7 @@ def organizercontroll(A,K,F,e,seed):
         #iterate through all of the blocks
         for instanceblock in range(0,numberofblock):
             if(K == 0):
-                successfullysend = blockreciever.recievesenddetect(F, biterrorprobability, instadelay, seed, 0)
+                successfullysend = blockreciever.recieve_send_detect(F, biterrorprobability, instadelay, seed, 0)
                 framecounter = framecounter + 1
                 if (succesfullysend != 0):
                     successfulframecount = successfulframecount + 1
@@ -36,9 +36,9 @@ def organizercontroll(A,K,F,e,seed):
                     #if any of the block fails the whole frame is resent
                     blockfail = 1
             else:
-                sucessfullysend = blockreciever.recievesenddetect((F/K), biterrorprobability,instadelay,seed,1)
+                successfullysend = blockreciever.recieve_send_detect((F/K), biterrorprobability,instadelay,seed,1)
                 framecounter = framecounter + 1
-                if(successfulsend != 0):
+                if(successfullysend != 0):
                     successfulframecount = successfulframecout + 1
                 else:
                     #if any of the block fails the whole frame is resent                    

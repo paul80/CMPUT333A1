@@ -22,24 +22,38 @@ def main():
     x = 0
     while( y ==0):
         while (x ==0):
-            parser = argparse.ArgumentParser()
-            parser.add_argument("start", nargs = 6 )
+            #parser = argparse.ArgumentParser()
+            #parser.add_argument("start", nargs = 6 )
             if ((len(sys.argv)==7)and((int(sys.argv[3])%(int(sys.argv[2])))==0)):
-                print(sys.argv[1] +sys.argv[2]+sys.argv[3] +sys.argv[4] +sys.arg[5] +sys.arg[6])
-                print('is this correct? ')
-                print('enter 1 for true and 0 to re- enter new input')
+                #print(str(sys.argv[1]) +str(sys.argv[2])+str(sys.argv[3]) +str(sys.argv[4]) +str(sys.arg[5]) +str(sys.arg[6])
+                #Print out the command line arguments to console in a list
+                #command_arguments=str(sys.argv).strip
                 
-                parser1 = argparse.ArgumentParser() 
-                parser1.add_argument('start',  type=int,  nargs=1 )
-                if(int(sys.argv[1]))==1:
+                command_arguments=[]
+                #use the for loop because just using str(sys.argv) is trippy 
+                for arg in sys.argv:
+                    command_arguments.append(arg)
+                print(command_arguments)
+                #print(command_arguments[0])
+                print('is this correct? ')
+                user_input= int(input("enter 1 for true and 0 to re- enter new input: "))
+                
+                #parser1 = argparse.ArgumentParser() 
+                #parser1.add_argument('start',  type=int,  nargs=1 )
+                #if(int(sys.argv[1]))==1:
                 #exits while loop that asks for user input
+                if (user_input==1):
                     x=1
                 else:
                 #stays in while loop that asks for user input
-                    ('+\n redirecting... \n')
+                    continue
+                    
             else:
                 #stays in while loop that asks for user input
                 print("your arguments does not match our criteria please try again \n")
+                y=1
+                x=1
+                #break
 
         #inside a while loop that starts a sample with 5 tests
         #these containers are for information regarding the output needed
@@ -49,9 +63,12 @@ def main():
         seedinstancecontainer=[]
             
         #this is a sample iterating through instances of tests
-        for testinstance in range(0, int(sys.arg[6])):
-            seed = int(sys.argv[6+testinstance+1])
-            framecounter, succesfulframecount, thoroughputinstance, seed = starttrial.instancetrial(sys.argv, seed)
+        for testinstance in range(0, int(command_arguments[6])):
+            #seed = int(sys.argv[6+testinstance+1])
+            seed=testinstance
+            #framecounter, succesfulframecount, thoroughputinstance, seed = startatrial.instancetrial(sys.argv, seed)
+            framecounter, succesfulframecount, thoroughputinstance, seed = startatrial.instancetrial(command_arguments, seed)
+            
             
             
             #adds information to the containers
@@ -61,8 +78,9 @@ def main():
             seedinstancecontainer.append(seed)
 
         #prints stats needed
-        statsandprint.getandprintstats(frameinstancecontainer, thoroughputcontainer, seedinstancecontainer, sys.argv)
-
+        #statsandprint.getandprintstats(frameinstancecontainer, thoroughputcontainer, seedinstancecontainer, sys.argv)
+        statsandprint.getandprintstats(frameinstancecontainer, thoroughputcontainer, seedinstancecontainer, command_arguments)
+        
         print('\n would you like to do a new test? \n')
         print('enter 0 for no and 1 for yes')
         #to string
