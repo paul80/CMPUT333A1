@@ -23,6 +23,7 @@ def recievessnddetect(numberofbits, error, feedbacktime, seed, doparity):
             paritycounter++
         else:
             checkflagcounter = 0
+            doparity = 0
     
 
     rnd = random.Random(seed)
@@ -34,8 +35,9 @@ def recievessnddetect(numberofbits, error, feedbacktime, seed, doparity):
         if p > instaerror:
             numberofpacketerror = numberofpacketerror + 1
 
+
     time.sleep(instadelay)
-if instaerror > 1:
+if numberofpacketerror > 1:
     return 0
 
 else:
