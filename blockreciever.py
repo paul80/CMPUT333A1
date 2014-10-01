@@ -4,11 +4,17 @@ import start
 import statsandprint
 import control
 import sys
-def recieve_send_detect(numberofbits, error, feedbacktime, seed, doparity):
+#def recieve_send_detect(numberofbits, error, feedbacktime, seed, doparity):
+def recieve_send_detect(numberofbits, error,seed, doparity):
 
     instaerror = float(error)
     instaerrorcount = 0
-    instadelay = int(feedbacktime)
+    
+    #Commenting out lines here-------
+    
+    #instadelay = int(feedbacktime)
+    
+    #-------------------------------
     
     numberofpacketerror = 0
 
@@ -52,8 +58,13 @@ def recieve_send_detect(numberofbits, error, feedbacktime, seed, doparity):
         #p = random.uniform(0,1)
         if p > instaerror:
             numberofpacketerror = numberofpacketerror + 1 
-    '''       
-    time.sleep(instadelay)
+    '''     
+    
+    #------------------------------
+    
+    #time.sleep(instadelay)
+    
+    #--------------------------------
     
     if numberofpacketerror > 1:
     #returns 0 to retransmit the whole frame when this block fails
