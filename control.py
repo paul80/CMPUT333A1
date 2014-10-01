@@ -56,7 +56,11 @@ def organizercontroll(A,K,F,e,seed):
     #we start returning values
     endinstancetime= time.time()
     theinstancetime = endinstancetime - startinstancetime
-    thoroughputinstance = ((K/F)*successfullysend)/(theinstancetime)
+    if (K==0):
+        K=1
+    #thoroughputinstance = ((K/F)*successfullysend)/(theinstancetime)
+    thoroughputinstance = F*5/(theinstancetime)
+    
     return framecounter, successfulframecount, thoroughputinstance,seed
 
 #a , b = somefunction()

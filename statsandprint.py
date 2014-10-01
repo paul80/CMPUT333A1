@@ -3,7 +3,7 @@ import math
 import start
 import blockreciever
 import control
-
+import sys 
 def standard_dev(lists):
     avg = float(sum(lists))/len(lists)
     #print(avg)
@@ -12,6 +12,8 @@ def standard_dev(lists):
         dev.append(x - avg)
         #print(dev)
     sqr = []
+    
+
     for x in dev:
         sqr.append(x * x)
     #print(sqr)
@@ -19,6 +21,7 @@ def standard_dev(lists):
     #print(mean)
     standard_deviation = math.sqrt(sum(sqr)/(len(sqr)-1))    
     return standard_deviation
+
 
 def getandprintstats(arrayofframes, arrayofthoroughput, arrayofseeds, arrayofinput ):
 
@@ -37,26 +40,29 @@ def getandprintstats(arrayofframes, arrayofthoroughput, arrayofseeds, arrayofinp
     Framesum=0
     
     
-    for numofframes in range(arrayofframes):
+    for numofframes in (arrayofframes):
         Framesum = Framesum+numofframes
     
     Frameavg = Framesum/(len(arrayofframes))
 
     Thoroughputsum = 0
-    for athoroughput in range(arrayofthoroughput):
-        Thoroughput = Thoroughput + athoroughput
+    for athoroughput in (arrayofthoroughput):
+        Thoroughputsum = Thoroughputsum + athoroughput
     
     Thoroughputavg = Thoroughputsum/(len(arrayofthoroughput))
 
-    Framec1 = (Frameavg)-(2.776*(Framestddev/(math.sqrt(T))))
-    Framec2 = (Frameavg)+(2.776*(Framestddev/(math.sqrt(T))))
+    Framec1 = float((Frameavg)-(2.776*(Framestddev/(math.sqrt(len(T))))))
+    Framec2 = float((Frameavg)+(2.776*(Framestddev/(math.sqrt(len(T))))))
 
-    Thoroughc1 = (Thoroughputavg) - (2.776(Thoroughputstddev/(math.sqrt(T))))
-    Thoroughc2 = (Thoroughputavg) + (2.776(Thoroughputstddev/(math.sqrt(T))))
+    Thoroughc1 = float((Thoroughputavg)-(2.776*(Thoroughputstddev/(math.sqrt(len(T))))))
+    Thoroughc2 = float((Thoroughputavg)+(2.776*(Thoroughputstddev/(math.sqrt(len(T))))))
+    
+    #Thoroughc1 = float((Thoroughputavg)+(2.776*(Framestddev/(math.sqrt(len(T))))))
+    #Thoroughc2 = (Thoroughputavg) + (2.776(float(Thoroughputstddev)/(math.sqrt(len(T)))))
   # Framestdev =  statistics.stdev(arrayofframes)
 
    #Throughputstdev =  statistics.stddev(arrayofthroughput)
-    print(sys.argv)
-    print(Frameavg+" "+"("+Framec1+","+Framec2+")")
-    print(Thoroughputavg+" "+"("+Thoroughc1+","+ Thoroughc2+")")
-
+    print(arrayofinput)
+    print(str(Frameavg)+" "+"("+ str(Framec1)+ "," + str(Framec2)+")")
+    print(str(Thoroughputavg)+" "+"("+ str(Thoroughc1)+ "," + str(Thoroughc2)+")")
+    #sys.exit()
