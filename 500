@@ -1,0 +1,16 @@
+enter A K e R t respectively without commas separated by spaces +
+
+A is feedback time in bit times
+K is blocks
+
+F is size of frame and K must be divisible by it
+
+e is error in float 
+
+R is length of simulations +
+
+t is trials +
+
+any wrong input will ask you to reenter the inputs
+your arguments does not match our criteria please try again 
+
