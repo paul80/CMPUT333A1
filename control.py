@@ -47,7 +47,7 @@ def organizercontroll(A,K,F,e,R):
                 successfullysend = blockreciever.recieve_send_detect(F, biterrorprobability, instadelay, R, 0)
                 framecounter = framecounter + 1
                 if (succesfullysend == 1):
-                    successfulframecount = successfulframecount + 1
+                    successful_block_count = successful_block_count + 1
                 else:
                     #if any of the block fails the whole frame is resent so blockfail is set to 1
                     blockfail = 1
@@ -57,7 +57,7 @@ def organizercontroll(A,K,F,e,R):
                 framecounter = framecounter + 1
                 #print("successfullysend"+str(successfullysend)) == 0
                 if(successfullysend != 0):
-                    successfulframecount = successfulframecount + 1
+                    successful_block_count = successful_block_count + 1
                 else:
                     #if any of the block fails the whole frame is resent                    
                     blockfail = 1
@@ -65,7 +65,7 @@ def organizercontroll(A,K,F,e,R):
         total_frames+=1
         #print("outsideforloop" )
         #print(blockfail) == 1
-        #print(successfulframecount)==0
+        #print(successfulblockcount)==0
         if (blockfail == 0):
             #if all of the blocks are succefully sent exit the while loop and increment total frames by 1
             #framesentfailed = 0
