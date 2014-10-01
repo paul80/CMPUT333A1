@@ -22,14 +22,24 @@ def standard_dev(lists):
     standard_deviation = math.sqrt(sum(sqr)/(len(sqr)-1))    
     return standard_deviation
 
-
-def getandprintstats(array_of_frames, array_of_thoroughput, array_of_seeds, array_of_input ):
+#array_of_frames is total number of frames
+#array of thoroughput is self explanatory
+#array of seeds is ?
+#array of input is just command line arguments
+def getandprintstats(array_of_frames,array_of_correct,array_of_thoroughput, array_of_seeds, array_of_input ):
 
     T = 5
     #Thoroughputstddev is probably correct
     
-    Framestddev = standard_dev(array_of_frames)
+    #Framestddev = standard_dev(array_of_frames)
     #Framestddev = numpy.std(arrayofframes)
+    
+    avg_frame_transmission=[]
+    for i in range(0,len(array_of_frames)):
+        temp=array_of_frames[i]//array_of_correct[i]
+        avg_frame_transmission.append(temp)
+    
+    Framestddev=standard_dev(avg_frame_transmission)
     Thoroughputstddev = standard_dev(array_of_thoroughput)
     #Thoroughputstddev = numpy.stdev(arrayofthoroughput)   
     
@@ -37,13 +47,13 @@ def getandprintstats(array_of_frames, array_of_thoroughput, array_of_seeds, arra
     #standard deviation end
     
     
-    Framesum=0
+    #Framesum=0
+    #for numofframes in (array_of_frames):
+        #Framesum = Framesum+numofframes
     
-    
-    for numofframes in (array_of_frames):
-        Framesum = Framesum+numofframes
-    
-    Frameavg = Framesum/(len(array_of_frames))
+    Frame_total=sum(array_of_frames)
+    Frame_correct=sum(array_of_correct)
+    Frameavg = Frame_total/Frame_correct
 
     Thoroughputsum = 0
     for athoroughput in (array_of_thoroughput):

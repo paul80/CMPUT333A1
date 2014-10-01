@@ -84,7 +84,7 @@ def main():
 
         #prints stats needed
         #statsandprint.getandprintstats(frameinstancecontainer, thoroughputcontainer, seedinstancecontainer, sys.argv)
-        statsandprint.getandprintstats(frame_counter_container, thoroughput_container, seed_instance_container, command_arguments)
+        statsandprint.getandprintstats(frame_counter_container,successful_frame_container, thoroughput_container, seed_instance_container, command_arguments)
         
         print('\n would you like to do a new test? \n')
         print('enter 0 for no and 1 for yes')

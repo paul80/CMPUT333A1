@@ -73,6 +73,7 @@ def organizercontroll(A,K,F,e,R):
     if (K==0):
         K=1
     thoroughputinstance = (F*correct_frames)/(theinstancetime)
+    print(thoroughputinstance)
    # print(frames)
    
     print(correct_frames, frames, correct_frames/frames)
