@@ -35,9 +35,13 @@ def getandprintstats(array_of_frames,array_of_correct,array_of_thoroughput, arra
     #Framestddev = numpy.std(arrayofframes)
     
     avg_frame_transmission=[]
+    
     for i in range(0,len(array_of_frames)):
-        temp=array_of_frames[i]//array_of_correct[i]
-        avg_frame_transmission.append(temp)
+        if(array_of_correct[i]!=0):  #Since the array_of_correct can have 0 values- avoid division by zero error
+            temp=array_of_frames[i]//array_of_correct[i]
+            avg_frame_transmission.append(temp)
+        else:
+            continue
     
     Framestddev=standard_dev(avg_frame_transmission)
     Thoroughputstddev = standard_dev(array_of_thoroughput)
@@ -72,7 +76,9 @@ def getandprintstats(array_of_frames,array_of_correct,array_of_thoroughput, arra
   # Framestdev =  statistics.stdev(arrayofframes)
 
    #Throughputstdev =  statistics.stddev(arrayofthroughput)
-    print(array_of_input)
+    #print(array_of_input)
+    print("Frame std deviation: ",Framestddev)
+    print("Thoroughput std deviation: ", Thoroughputstddev)
     print("Frame stats:"+str(Frameavg)+" "+"("+ str(Framec1)+ "," + str(Framec2)+")")
     print("Thoroughput stats: "+str(Thoroughputavg)+" "+"("+ str(Thoroughc1)+ "," + str(Thoroughc2)+")")
     #sys.exit()

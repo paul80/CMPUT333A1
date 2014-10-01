@@ -7,7 +7,7 @@ import sys
 
 def organizercontroll(A,K,F,e,R):
 
-    #global blockfail
+    #global blockfail - not needed
     #ADD SEED LATER
     
     sizeofpacket = int(F)
@@ -76,7 +76,7 @@ def organizercontroll(A,K,F,e,R):
     print(thoroughputinstance)
    # print(frames)
    
-    print(correct_frames, frames, correct_frames/frames)
+    #print(correct_frames, frames, correct_frames/frames)
     #return total_frames, correct_frames/frames, thoroughputinstance,R
     return total_frames,correct_frames,thoroughputinstance,R
 
