@@ -36,7 +36,7 @@ def recieve_send_detect(numberofbits, error, feedbacktime, seed, doparity):
     counter=0
     while (counter<int(numberofbits)+paritycounter):        
         p = random.random()  #returns floating point number between 0 and 1
-        print(str(p))
+        #print(str(p))
         #p = random.uniform(0,1)
         if p < instaerror:
             numberofpacketerror = numberofpacketerror + 1  

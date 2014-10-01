@@ -25,7 +25,7 @@ def standard_dev(lists):
 
 def getandprintstats(arrayofframes, arrayofthoroughput, arrayofseeds, arrayofinput ):
 
-    T = arrayofinput[5]
+    T = 5
     Framestddev = standard_dev(arrayofframes)
     #Framestddev = numpy.std(arrayofframes)
     Thoroughputstddev = standard_dev(arrayofthoroughput)
@@ -51,11 +51,11 @@ def getandprintstats(arrayofframes, arrayofthoroughput, arrayofseeds, arrayofinp
     
     Thoroughputavg = Thoroughputsum/(len(arrayofthoroughput))
 
-    Framec1 = float((Frameavg)-(2.776*(Framestddev/(math.sqrt(len(T))))))
-    Framec2 = float((Frameavg)+(2.776*(Framestddev/(math.sqrt(len(T))))))
+    Framec1 = float((Frameavg)-(2.776*(Framestddev/(math.sqrt(T)))))
+    Framec2 = float((Frameavg)+(2.776*(Framestddev/(math.sqrt(T)))))
 
-    Thoroughc1 = float((Thoroughputavg)-(2.776*(Thoroughputstddev/(math.sqrt(len(T))))))
-    Thoroughc2 = float((Thoroughputavg)+(2.776*(Thoroughputstddev/(math.sqrt(len(T))))))
+    Thoroughc1 = float((Thoroughputavg)-(2.776*(Thoroughputstddev/(math.sqrt(T)))))
+    Thoroughc2 = float((Thoroughputavg)+(2.776*(Thoroughputstddev/(math.sqrt(T)))))
     
     #Thoroughc1 = float((Thoroughputavg)+(2.776*(Framestddev/(math.sqrt(len(T))))))
     #Thoroughc2 = (Thoroughputavg) + (2.776(float(Thoroughputstddev)/(math.sqrt(len(T)))))
